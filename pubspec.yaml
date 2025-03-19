@@ -1,0 +1,59 @@
+name: test_app
+description: "SimuBank"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+dependencies:
+  flutter:
+    sdk: flutter
+
+  ##PACKAGES
+  authentication_repository:
+    path: packages/authentication_repository
+  data_repositories:
+    path: packages/data_repositories
+  network_client:
+    path: packages/network_client
+    
+  ##UI
+  flutter_animate: ^4.5.2
+  gap: ^3.0.1
+
+  ##UTILS
+  auto_route: ^10.0.1
+  bloc: ^9.0.0
+  collection: ^1.19.1
+  easy_localization: ^3.0.7
+  flutter_bloc: ^9.1.0
+  flutter_form_builder: ^10.0.1
+  flutter_screenutil: ^5.9.3
+  flutter_secure_storage: ^9.2.4
+  form_builder_validators: ^11.1.2  
+  infinite_scroll_pagination: ^5.0.0
+  logger: ^2.5.0
+  package_info_plus: ^8.3.0
+  very_good_analysis: ^7.0.0
+
+dev_dependencies:
+  auto_route_generator: ^10.0.1
+  build_runner: ^2.4.15
+  flutter_gen_runner: ^5.10.0
+  flutter_launcher_icons: ^0.14.3
+  flutter_test:
+    sdk: flutter
+  freezed: ^3.0.4
+  freezed_annotation: ^3.0.0
+  plugin_platform_interface: ^2.1.8
+
+flutter_gen:
+  integrations:
+    flutter_svg: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/translations/
+    - assets/icons/
+    - assets/images/

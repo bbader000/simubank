@@ -1,0 +1,32 @@
+{
+    "general": {
+        "simuBank": "SimuBank",
+        "ok": "OK",
+        "search": "Search"
+    },
+    "exceptions": {
+        "unknownError": "Error happened!"
+    },
+    "auth": {
+        "login": "Login",
+        "registration": "Registration",
+        "email": "Email",
+        "password": "Password",
+        "noAccountYet": "No account yet? Create now!",
+        "digitalBanking": "Digital Banking",
+        "exceptions": {
+            "userNotFound": "User not found with this email"
+        }
+    },
+    "transactions": {
+        "transactions": "Transactions",
+        "transactionDetails": "Transaction details",
+        "welcomeText": "Hello, ",
+        "date": "Date",
+        "merchant": "Merchant",
+        "category": "Category",
+        "toAccount": "To account",
+        "noTransactions": "We are sorry! No transactions found",
+        "notSoFast": "Whoaah... Not so fast! Wait a fes seconds..."
+    }
+}

@@ -1,0 +1,23 @@
+name: network_client
+description: network_client
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.7.12 <4.0.0"
+
+dependencies:
+  dart_jsonwebtoken: ^2.14.0
+  dio: ^5.5.0
+  flutter:
+    sdk: flutter
+  flutter_secure_storage: ^9.2.4
+  freezed_annotation: ^3.0.0
+  pretty_dio_logger: ^1.4.0
+  very_good_analysis: ^7.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  freezed: ^3.0.4
