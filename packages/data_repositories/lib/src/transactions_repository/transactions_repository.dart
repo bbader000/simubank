@@ -9,11 +9,18 @@ class TransactionsRepository {
 
   Dio get serverPrivate => _client.serverPrivate;
 
-  Future<List<Transaction>?> getTransactions() async {
-    final response = await serverPrivate.get<List<Json>>(
+  Future<List<Transaction>?> getTransactions({
+    required int limit,
+    required int pageKey,
+  }) async {
+    final response = await serverPrivate.get<List<dynamic>>(
       TransactionsApiPaths.transactions,
+      queryParameters: {
+        '_limit': limit,
+        '_page': pageKey,
+      },
     );
     if (response.data == null) return [];
-    return response.data!.map(Transaction.fromJson).toList();
+    return response.data!.map((e) => Transaction.fromJson(e as Json)).toList();
   }
 }

@@ -31,6 +31,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: HomeBody());
+    return BlocProvider(
+      create:
+          (context) => TransactionCubit(transactionsRepository: context.read()),
+      child: const Scaffold(body: HomeBody()),
+    );
   }
 }
