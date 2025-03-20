@@ -71,7 +71,7 @@ class _ThemeSwitcher extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16),
       child: Switch(
         activeColor: colors.mainBlue,
-        value: currentTheme.isLight,
+        value: !currentTheme.isDark,
         onChanged:
             (_) => context.read<ThemeModeCubit>().onThemeModeChanged(
               currentTheme.isLight ? ThemeMode.dark : ThemeMode.light,

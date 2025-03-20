@@ -19,7 +19,7 @@ class BottomSheetContainer extends StatelessWidget {
     final colors = context.colors;
     return Container(
       decoration: BoxDecoration(
-        color: colors.mainWhite,
+        color: colors.background,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
       ),
       width: double.infinity,

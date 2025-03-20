@@ -127,6 +127,7 @@ class _Buttons extends StatelessWidget {
 
   Future<void> _login(BuildContext context) async {
     try {
+      FocusScope.of(context).unfocus();
       final isStateValid = formKey.currentState!.saveAndValidate();
       if (!isStateValid) return;
       final fields = formKey.currentState!.fields;

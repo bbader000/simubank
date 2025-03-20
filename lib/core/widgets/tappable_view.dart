@@ -1,3 +1,5 @@
+// ignore_for_file: cascade_invocations
+
 import 'package:flutter/material.dart';
 
 class TappableView extends StatefulWidget {
@@ -89,17 +91,22 @@ class _TappableViewState extends State<TappableView>
   void _animate() {
     if (_animationController.isAnimating) return;
     final wasHeldDown = _buttonHeldDown;
-    _buttonHeldDown
-        ? _animationController.animateTo(
-          1,
-          duration: kFadeOutDuration,
-          curve: Curves.easeInOutCubicEmphasized,
-        )
-        : _animationController
-            .animateTo(0, duration: kFadeInDuration, curve: Curves.easeOutCubic)
-            .then<void>((_) {
-              if (mounted && wasHeldDown != _buttonHeldDown) _animate();
-            });
+    final ticker =
+        _buttonHeldDown
+            ? _animationController.animateTo(
+              1,
+              duration: kFadeOutDuration,
+              curve: Curves.easeInOutCubicEmphasized,
+            )
+            : _animationController.animateTo(
+              0,
+              duration: kFadeInDuration,
+              curve: Curves.easeOutCubic,
+            );
+
+    ticker.then<void>((_) {
+      if (mounted && wasHeldDown != _buttonHeldDown) _animate();
+    });
   }
 
   @override

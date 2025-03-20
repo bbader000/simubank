@@ -66,7 +66,7 @@ class _Title extends StatelessWidget {
                   text: LocaleKeys.transactions_welcomeText.tr(),
                   style: textStyles.h1.copyWith(fontWeight: FontWeight.normal),
                 ),
-                TextSpan(text: userProfile.name, style: textStyles.h1),
+                TextSpan(text: '${userProfile.name}!', style: textStyles.h1),
               ],
             ),
           ),
