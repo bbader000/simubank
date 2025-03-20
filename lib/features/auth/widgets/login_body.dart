@@ -26,6 +26,7 @@ class _LoginBodyState extends State<LoginBody> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(
         padding: UIConstants.paddingHorizontal32,
@@ -33,10 +34,9 @@ class _LoginBodyState extends State<LoginBody> {
           key: _formKey,
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              minWidth: MediaQuery.of(context).size.width,
+              minWidth: size.width,
               minHeight:
-                  MediaQuery.of(context).size.height -
-                  (context.topPadding + context.bottomPadding),
+                  size.height - (context.topPadding + context.bottomPadding),
             ),
             child: IntrinsicHeight(
               child: Column(
