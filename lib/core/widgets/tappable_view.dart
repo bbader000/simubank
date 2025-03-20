@@ -89,22 +89,17 @@ class _TappableViewState extends State<TappableView>
   void _animate() {
     if (_animationController.isAnimating) return;
     final wasHeldDown = _buttonHeldDown;
-    final ticker =
-        _buttonHeldDown
-            ? _animationController.animateTo(
-              1,
-              duration: kFadeOutDuration,
-              curve: Curves.easeInOutCubicEmphasized,
-            )
-            : _animationController.animateTo(
-              0,
-              duration: kFadeInDuration,
-              curve: Curves.easeOutCubic,
-            );
-    // ignore: cascade_invocations
-    ticker.then<void>((_) {
-      if (mounted && wasHeldDown != _buttonHeldDown) _animate();
-    });
+    _buttonHeldDown
+        ? _animationController.animateTo(
+          1,
+          duration: kFadeOutDuration,
+          curve: Curves.easeInOutCubicEmphasized,
+        )
+        : _animationController
+            .animateTo(0, duration: kFadeInDuration, curve: Curves.easeOutCubic)
+            .then<void>((_) {
+              if (mounted && wasHeldDown != _buttonHeldDown) _animate();
+            });
   }
 
   @override

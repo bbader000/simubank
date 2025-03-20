@@ -44,6 +44,15 @@ extension BuildContextExtensions on BuildContext {
       );
   }
 
+  Future<T?> presentSheet<T>({
+    required String title,
+    required Widget content,
+  }) => showModalBottomSheet<T>(
+    context: this,
+    isScrollControlled: true,
+    builder: (context) => BottomSheetContainer(title: title, content: content),
+  );
+
   void showErrorSnackBar(String message) {
     showSnackBar(Toast.error(text: message, backgroundColor: colors.mainRed));
   }

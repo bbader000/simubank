@@ -17,9 +17,19 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.background,
   });
 
-  // factory AppColors.dark() => const AppColors(
-  // TODO: Implement dark theme
-  // )
+  factory AppColors.dark() => const AppColors(
+    mainBlack: DarkAppColors.mainBlack,
+    mainWhite: DarkAppColors.mainWhite,
+    mainGrey: DarkAppColors.mainGrey,
+    mainDarkGrey: DarkAppColors.mainDarkGrey,
+    mainGreen: DarkAppColors.mainGreen,
+    mainBlue: DarkAppColors.mainBlue,
+    mainRed: DarkAppColors.mainRed,
+    textColorPrimary: DarkAppColors.textColorPrimary,
+    textColorSecondary: DarkAppColors.textColorSecondary,
+    textColorRed: DarkAppColors.textColorRed,
+    background: DarkAppColors.background,
+  );
 
   factory AppColors.light() => const AppColors(
     mainBlack: LightAppColors.mainBlack,

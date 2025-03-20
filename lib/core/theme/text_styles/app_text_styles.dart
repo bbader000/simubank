@@ -19,9 +19,13 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
     caption: LightTextStyles.caption,
   );
 
-  // factory AppTextStyles.dark() => const AppTextStyles(
-  // TODO: Implement dark theme
-  //     );
+  factory AppTextStyles.dark() => const AppTextStyles(
+    h1: DarkTextStyles.h1,
+    h2: DarkTextStyles.h2,
+    button: DarkTextStyles.button,
+    paragraph: DarkTextStyles.paragraph,
+    caption: DarkTextStyles.caption,
+  );
 
   final TextStyle h1;
   final TextStyle h2;

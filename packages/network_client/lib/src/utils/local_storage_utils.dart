@@ -8,6 +8,7 @@ class LocalStorageUtils {
       );
 
   String get userIdKey => 'userId';
+  String get themeModeKey => 'themeMode';
 
   Future<void> setString(String key, String value) =>
       _instance.write(key: key, value: value);

@@ -9,6 +9,31 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/eye-hide.png
+  AssetGenImage get eyeHide => const AssetGenImage('assets/icons/eye-hide.png');
+
+  /// File path: assets/icons/eye.png
+  AssetGenImage get eye => const AssetGenImage('assets/icons/eye.png');
+
+  /// File path: assets/icons/log-out.png
+  AssetGenImage get logOut => const AssetGenImage('assets/icons/log-out.png');
+
+  /// File path: assets/icons/moon.png
+  AssetGenImage get moon => const AssetGenImage('assets/icons/moon.png');
+
+  /// File path: assets/icons/sun.png
+  AssetGenImage get sun => const AssetGenImage('assets/icons/sun.png');
+
+  /// File path: assets/icons/x-mark.png
+  AssetGenImage get xMark => const AssetGenImage('assets/icons/x-mark.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [eyeHide, eye, logOut, moon, sun, xMark];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -32,6 +57,7 @@ class $AssetsTranslationsGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }

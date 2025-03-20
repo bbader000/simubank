@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/core/core.dart';
-import 'package:test_app/core/widgets/global_provider_wrapper.dart';
 import 'package:test_app/routing/app_routes.dart';
 
 const _kAppTitle = 'SimuBank';
@@ -43,6 +43,8 @@ class _App extends StatelessWidget {
         builder:
             (_, child) => GlobalProviderWrapper(child: _Unfocus(child: child!)),
         theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        themeMode: context.watch<ThemeModeCubit>().state,
       ),
     );
   }

@@ -1,7 +1,11 @@
 import 'package:data_repositories/data_repositories.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:test_app/core/core.dart';
+import 'package:test_app/features/features.dart';
+import 'package:test_app/features/home/transaction_extensions.dart';
+import 'package:test_app/gen/locale_keys.g.dart';
 
 class TransactionCard extends StatelessWidget {
   const TransactionCard({required this.transaction, super.key});
@@ -10,17 +14,25 @@ class TransactionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: colors.mainGrey)),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _Data(transaction: transaction),
-          _Amount(transaction: transaction),
-        ],
+    return TappableView(
+      onTap:
+          () => context.presentSheet<void>(
+            title: LocaleKeys.transactions_transactionDetails.tr(),
+
+            content: TransactionDetailedContent(transaction: transaction),
+          ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+        decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(color: colors.mainGrey)),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _Data(transaction: transaction),
+            _Amount(transaction: transaction),
+          ],
+        ),
       ),
     );
   }
@@ -52,12 +64,12 @@ class _Amount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final currency = transaction.currency;
     final textColor =
-        transaction.amount > 0 ? colors.mainGreen : colors.mainRed;
+        transaction.amount.isNegative ? colors.mainRed : colors.mainGreen;
     return H2Text(
-      '${transaction.amount.getFormattedCurrency(currency)} $currency',
+      transaction.formattedAmount,
       color: textColor,
+      fontWeight: FontWeight.bold,
     );
   }
 }

@@ -18,25 +18,13 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    return SafeArea(
+    return const SafeArea(
       bottom: false,
       child: Padding(
         padding: UIConstants.paddingHorizontal32,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Gap(10),
-            Center(
-              child: H1Text(
-                LocaleKeys.transactions_transactions.tr(),
-                color: colors.mainBlue,
-              ),
-            ),
-            const Gap(20),
-            const _Title(),
-            const Expanded(child: _Items()),
-          ],
+          children: [Gap(20), _Title(), Gap(10), Expanded(child: _Items())],
         ),
       ),
     );
@@ -141,6 +129,13 @@ class _ItemsState extends State<_Items> {
             fetchNextPage: fetchNextPage,
             builderDelegate: PagedChildBuilderDelegate(
               itemBuilder: (_, item, __) => TransactionCard(transaction: item),
+              noItemsFoundIndicatorBuilder:
+                  (_) => Center(
+                    child: H2Text(
+                      LocaleKeys.transactions_noTransactions.tr(),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
               firstPageProgressIndicatorBuilder:
                   (_) => const TransactionShimmer(),
               newPageProgressIndicatorBuilder: (_) => const _Loader(),
@@ -164,7 +159,9 @@ class _Loader extends StatelessWidget {
           CaptionText(
             LocaleKeys.transactions_notSoFast.tr(),
             color: colors.textColorSecondary,
+            textAlign: TextAlign.center,
           ).animate(onComplete: (controller) => controller.forward()).shimmer(),
+          Gap(context.bottomPadding),
         ],
       ),
     );

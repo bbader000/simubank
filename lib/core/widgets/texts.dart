@@ -37,6 +37,7 @@ class H2Text extends StatelessWidget {
     super.key,
     this.overflow,
     this.maxLines,
+    this.fontWeight,
   });
 
   final String text;
@@ -44,12 +45,16 @@ class H2Text extends StatelessWidget {
   final TextAlign? textAlign;
   final TextOverflow? overflow;
   final int? maxLines;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: context.textStyles.h2.copyWith(color: color),
+      style: context.textStyles.h2.copyWith(
+        color: color,
+        fontWeight: fontWeight,
+      ),
       textAlign: textAlign,
       overflow: overflow,
       maxLines: maxLines,

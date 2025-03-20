@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:test_app/core/core.dart';
+import 'package:test_app/gen/assets.gen.dart';
 
 const _kMinHeight = 40.0;
 
@@ -64,7 +65,7 @@ class BasicTextFieldState extends State<BasicTextField> {
     final hintStyle = textStyles.paragraph.copyWith(
       color: colors.textColorSecondary,
     );
-
+    const icons = Assets.icons;
     return FormBuilderTextField(
       name: widget.name,
       enabled: widget.enabled,
@@ -75,6 +76,7 @@ class BasicTextFieldState extends State<BasicTextField> {
       validator: widget.validator,
       textInputAction: widget.textInputAction ?? TextInputAction.next,
       cursorColor: colors.mainBlack,
+
       decoration: InputDecoration(
         hintText: widget.hintText,
         constraints: const BoxConstraints(minHeight: _kMinHeight),
@@ -88,6 +90,17 @@ class BasicTextFieldState extends State<BasicTextField> {
         focusedErrorBorder: _getBorder(colors.mainDarkGrey),
         disabledBorder: _getBorder(colors.mainGrey),
         hintStyle: hintStyle,
+        suffixIcon:
+            widget.secret
+                ? TappableView(
+                  child: isVisible ? icons.eye.image() : icons.eyeHide.image(),
+                  onTap: () {
+                    setState(() {
+                      isVisible = !isVisible;
+                    });
+                  },
+                )
+                : null,
       ),
     );
   }
